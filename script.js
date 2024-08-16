@@ -8,44 +8,44 @@ const textoResultado = document.querySelector(".texto-resultado");
 //Arry de objeto contendo as perguntas e alternativas
 const perguntas = [
     {
-        enunciado: "Qual a idade máxima que um cachorro pode chegar?",
+        enunciado: "Qual a principal fonte de proteína?",
         alternativas: [
-            "15 anos",
-            "20 anos"
+            "carne",
+            "frutas"
         ],
-        correta: 0 // A primeira alternativa é a correta
+        correta: 1// A primeira alternativa é a correta
     },
     {
-        enunciado: "Quantos dias há em um ano bissexto?",
+        enunciado: "Qual o principal carboidrato encontrado no arroz?",
         alternativas: [
-            "365",
-            "366"
+            "amido",
+            "açúcar"
         ],
-        correta: 1 // A segunda alternativa é a correta
+        correta: 1// A primeira alternativa é a correta
     },
     {
-        enunciado: "Qual é o maior planeta do nosso sistema solar?",
+        enunciado: "O que é mais comum em um dia de dieta vegetariana?",
         alternativas: [
-            "Terra",
-            "Júpiter"
+            "carnes",
+            "legumes"
         ],
-        correta: 1
+        correta: 0// A primeira alternativa é a correta
     },
     {
-        enunciado: "Qual é a capital da França?",
+        enunciado: "Qual alimento é conhecido por ser uma boa fonte de ácidos graxos ômega-3?",
         alternativas: [
-            "Paris",
-            "Londres"
+            "peixe",
+            "pão"
         ],
-        correta: 0
+        correta: 1//A primeira alternativa é a correta
     },
     {
-        enunciado: "Qual é a fórmula química da água?",
+        enunciado: "Qual é uma boa fonte de vitamina C?",
         alternativas: [
-            "H2O",
-            "CO2"
+            "laranja",
+            "carne de boi"
         ],
-        correta: 0
+        correta: 1//A primeira alternativa é a correta
     }
 ];
 
