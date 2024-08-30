@@ -58,7 +58,13 @@ let pontuacao = 0; // Inicie a pontuação em 0
 function mostrarPergunta(){
     perguntaAtual = pergunta[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas
-    perguntaAtual.alternativas.forEach()
+    caixaAlternativas.innerHTML = "";
+
+    perguntaAtual.alternativas.forEach((alternativas, index)=>{
+        const botao = document.createElement("button");
+        botao.addEventListener("click",()=>verificaresposta(index));
+        caixaAlternativas.appendChild(botao);
+
+    });
         
 }
