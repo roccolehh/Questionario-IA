@@ -68,3 +68,17 @@ function mostrarPergunta(){
     });
         
 }
+
+//FUNÇÃO VERIFICAR RESPOSTA
+function verificaResposta(Seleciona) {
+    if (selecionada === perguntaAtual.correta) {
+        pontuacao++;
+    }
+    atual++;
+
+    if (atual < perguntas.length) {
+        mostrarPergunta();
+    } else {
+        mostrarResultado();
+    }
+}
