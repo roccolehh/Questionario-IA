@@ -37,3 +37,38 @@ img{
 h1 {
     color: var(--cor-destaque);
 }
+button{
+    background-color: var(--cor-destaque);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: var(--cor-principal);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: var(--cor-fadeButtom);
+    color: var(--cor-texto);
+}
+
+.caixa-resultado{
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 8px;
+}
+
+.caixa-resultado-mostrar{
+    opacity: 1;
+}
+
+.texto-resultado{
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+}
