@@ -82,3 +82,26 @@ function verificaResposta(Seleciona) {
         mostrarResultado();
     }
 }
+function mostrarResultado(){
+    caixaPrincipal.style.display= "none";
+    caixaResultado.style.display= "block";
+
+    setTimeout (() => caixaResultado.classList.add("mostrar"), 10);
+    textoResultado.textContent = `Você acertou ${pontuacao} de ${perguntas.lenght} perguntas!`;
+    const botaoReiniciar = document.createElement("button");
+    botaoReiniciar.textContent = "Reiniciar";
+
+    botaoReiniciar.addEventListener("click",() => {
+        atual = 0;
+        pontuacao = 0;
+        caixaResultado.classList.remove("mostrar");
+        caixaResultado.style.display = "none";
+        caixaPrincipal.style.display = "block";
+        mostrarPergunta();
+    });
+
+    caixaResultado.innerHTML = "";
+    caixaResultado.appendChild(textoResultado);
+    caixaResultado.appendChild(botaoReiniciar);
+}
+mostrarPergunta();
