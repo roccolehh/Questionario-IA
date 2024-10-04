@@ -1,5 +1,5 @@
-/* DEFINIÇÃO DAS VARIAVEIS CSS PARA CORES*/
-:root{
+/* DEFINIÇÃO DAS VARIÁVEIS CSS PARA CORES */
+:root {
     --cor-fundo: #010d17;
     --cor-principal: #0b0d20;
     --cor-secundaria: #212333;
@@ -8,7 +8,7 @@
     --cor-fadeButtom: #e30d6d;
 }
 
-body{
+body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     display: flex;
@@ -19,25 +19,26 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
 }
 
-.caixa-principal{
+.caixa-principal {
     background-color: var(--cor-principal);
     width: 90%;
-    max-width: 500%;
+    max-width: 500px; /* Corrigido para 500px */
     text-align: center;
     padding: 20px;
-    box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
 h1 {
     color: var(--cor-destaque);
 }
-button{
+
+button {
     background-color: var(--cor-destaque);
     border: none;
     padding: 10px 20px;
@@ -54,8 +55,8 @@ button:hover {
     color: var(--cor-texto);
 }
 
-.caixa-resultado{
-    display: none;
+.caixa-resultado {
+    display: none; /* Mantido como não exibido por padrão */
     text-align: center;
     padding: 20px;
     background-color: var(--cor-secundaria);
@@ -64,11 +65,12 @@ button:hover {
     border-radius: 8px;
 }
 
-.caixa-resultado-mostrar{
+.caixa-resultado.mostrar { /* Alterado para corresponder ao nome da classe no JS */
+    display: block; /* Certifica que a caixa seja exibida antes da transição de opacidade */
     opacity: 1;
 }
 
-.texto-resultado{
+.texto-resultado {
     font-size: 1.2rem;
     color: var(--cor-texto);
 }

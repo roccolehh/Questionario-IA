@@ -1,11 +1,11 @@
-// Seleciona os elementos HTML que manipulados
+// Seleciona os elementos HTML que serão manipulados
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-//Arry de objeto contendo as perguntas e alternativas
+// Array de objetos contendo as perguntas e alternativas
 const perguntas = [
     {
         enunciado: "Qual a principal fonte de proteína?",
@@ -13,7 +13,7 @@ const perguntas = [
             "carne",
             "frutas"
         ],
-        correta: 1// A primeira alternativa é a correta
+        correta: 0 // A primeira alternativa é a correta
     },
     {
         enunciado: "Qual o principal carboidrato encontrado no arroz?",
@@ -21,7 +21,7 @@ const perguntas = [
             "amido",
             "açúcar"
         ],
-        correta: 1// A primeira alternativa é a correta
+        correta: 0 // A primeira alternativa é a correta
     },
     {
         enunciado: "O que é mais comum em um dia de dieta vegetariana?",
@@ -29,7 +29,7 @@ const perguntas = [
             "carnes",
             "legumes"
         ],
-        correta: 0// A primeira alternativa é a correta
+        correta: 1 // A segunda alternativa é a correta
     },
     {
         enunciado: "Qual alimento é conhecido por ser uma boa fonte de ácidos graxos ômega-3?",
@@ -37,7 +37,7 @@ const perguntas = [
             "peixe",
             "pão"
         ],
-        correta: 1//A primeira alternativa é a correta
+        correta: 0 // A primeira alternativa é a correta
     },
     {
         enunciado: "Qual é uma boa fonte de vitamina C?",
@@ -45,32 +45,30 @@ const perguntas = [
             "laranja",
             "carne de boi"
         ],
-        correta: 1//A primeira alternativa é a correta
+        correta: 0 // A primeira alternativa é a correta
     }
 ];
 
-// inicializa o índice da pergunta atual e a pontuação
-
+// Inicializa o índice da pergunta atual e a pontuação
 let atual = 0;
 let perguntaAtual;
 let pontuacao = 0; // Inicie a pontuação em 0
 
-function mostrarPergunta(){
-    perguntaAtual = pergunta[atual];
+function mostrarPergunta() {
+    perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.innerHTML = "";
 
-    perguntaAtual.alternativas.forEach((alternativas, index)=>{
+    perguntaAtual.alternativas.forEach((alternativa, index) => {
         const botao = document.createElement("button");
-        botao.addEventListener("click",()=>verificaresposta(index));
+        botao.textContent = alternativa; // Adiciona o texto da alternativa ao botão
+        botao.addEventListener("click", () => verificaResposta(index));
         caixaAlternativas.appendChild(botao);
-
     });
-        
 }
 
-//FUNÇÃO VERIFICAR RESPOSTA
-function verificaResposta(Seleciona) {
+// FUNÇÃO VERIFICAR RESPOSTA
+function verificaResposta(selecionada) {
     if (selecionada === perguntaAtual.correta) {
         pontuacao++;
     }
@@ -82,16 +80,17 @@ function verificaResposta(Seleciona) {
         mostrarResultado();
     }
 }
-function mostrarResultado(){
-    caixaPrincipal.style.display= "none";
-    caixaResultado.style.display= "block";
 
-    setTimeout (() => caixaResultado.classList.add("mostrar"), 10);
-    textoResultado.textContent = `Você acertou ${pontuacao} de ${perguntas.lenght} perguntas!`;
+function mostrarResultado() {
+    caixaPrincipal.style.display = "none";
+    caixaResultado.style.display = "block";
+
+    setTimeout(() => caixaResultado.classList.add("mostrar"), 10);
+    textoResultado.textContent = `Você acertou ${pontuacao} de ${perguntas.length} perguntas!`;
     const botaoReiniciar = document.createElement("button");
     botaoReiniciar.textContent = "Reiniciar";
 
-    botaoReiniciar.addEventListener("click",() => {
+    botaoReiniciar.addEventListener("click", () => {
         atual = 0;
         pontuacao = 0;
         caixaResultado.classList.remove("mostrar");
@@ -100,8 +99,10 @@ function mostrarResultado(){
         mostrarPergunta();
     });
 
-    caixaResultado.innerHTML = "";
+    caixaResultado.innerHTML = ""; // Limpa o conteúdo anterior
     caixaResultado.appendChild(textoResultado);
     caixaResultado.appendChild(botaoReiniciar);
 }
+
+// Inicia o quiz
 mostrarPergunta();
